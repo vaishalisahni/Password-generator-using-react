@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useState , useRef} from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
@@ -19,16 +17,23 @@ function App() {
     let pass = "";
     if (numAllowed) str += "1234567890";
     if (charAllowed) str += "!@#$%^&*()_-+={}[]:,./<>?";
+
     for (let i = 1; i <= length; i++) {
       let char = Math.floor(Math.random() * str.length + 1); // gives index
       pass += str.charAt(char);
     }
+
     setPass(pass);
+
   }, [length, numAllowed, charAllowed, setPass]);
+
   const copyPasswordToClipboard=useCallback(()=>{
+
     passwordRef.current?.select(); // this is only for the ui to look good when copy button is clicked so that user get informed which text is being copued
     // passwordRef.current?.setSelectionRange(0,3);   it is not needed here but we should know about this... saara select nhi kuch particular range select karta hai
+    
     window.navigator.clipboard.writeText(password)
+
   },[password])
 
   //useEffect hook - when page gets loaded then it is called and whenever anything in the dependencies array gets changed then also it is called
