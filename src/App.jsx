@@ -9,7 +9,9 @@ function App() {
   const [password, setPass] = useState("");
 
   // useRef hook
-  const passwordRef =useRef(null); // we can take any elemnt's reference and make manipulations with it and we have to pass reference
+  const passwordRef =useRef(null); // we can take any element's reference and make manipulations with it and we have to pass reference in that element using ref
+  
+  
   // useCallback hook- step 2 - password generator 
   // optimised using usecallback - memorize function partally or completely .. [dependencies] 
   const passwordGenerator = useCallback(() => {
